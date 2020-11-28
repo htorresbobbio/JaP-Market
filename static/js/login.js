@@ -7,9 +7,11 @@ form.addEventListener("submit", function (e) {
     if (form.checkValidity()) {
         sessionStorage.clear();
         sessionStorage.setItem(
-            "User-Logged",
-            JSON.stringify({ email: inputEmail.value.trim() })
+            "User-Logged", JSON.stringify({ email: inputEmail.value.trim() })
         );
+        sessionStorage.setItem(
+            "Visited", true
+        )
         window.location.href = "index.html"
     }
 })
@@ -23,6 +25,9 @@ function onSignIn(googleUser) {
     )
     sessionStorage.setItem(
         "loggedWithGoogle", true
+    )
+    sessionStorage.setItem(
+        "Visited", true
     )
 
     // The ID token you need to pass to your backend:
