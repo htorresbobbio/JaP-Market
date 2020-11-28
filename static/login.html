@@ -14,7 +14,6 @@
     <!-- Login custom css -->
     <link rel="stylesheet" href="css/login.css">
     <!-- Google login -->
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id"
         content="204514762043-f7gv4hblbm5d6lgov6ev2omlpsdsght0.apps.googleusercontent.com">
 </head>
@@ -31,10 +30,12 @@
         <label for="inputPassword" class="sr-only">Contraseña</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
         <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">Iniciar sesión</button>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-longtitle="true" data-width="300" data-height="48"
+            data-theme="dark"></div>
         <p class="mt-3 mb-2 text-muted">Jóvenes a Programar 2020</p>
     </form>
+    <script src="js/login.js"></script>
+    <script src="https://apis.google.com/js/platform.js?hl=es" async defer></script>
 </body>
-<script src="js/login.js"></script>
 
 </html>

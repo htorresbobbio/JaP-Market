@@ -57,12 +57,6 @@ async function postJSONData(url, obj) {
 }
 
 //Google Auth Logout
-function onLoad() {
-  gapi.load("auth2", function () {
-    gapi.auth2.init();
-  });
-}
-
 function signOut() {
   var loggedWithGoogle = JSON.parse(sessionStorage.getItem("loggedWithGoogle"))
   if (loggedWithGoogle) {
@@ -77,8 +71,13 @@ function signOut() {
   window.location.href = "index.html"
 }
 
+function onLoad() {
+  gapi.load("auth2", function () {
+    gapi.auth2.init();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function (e) {
-  // onLoad()
   userLogged = sessionStorage.getItem("User-Logged");
   let userName = document.getElementById("navbarDropdownMenuLink");
   let userPanel = document.getElementById("userPanel");
