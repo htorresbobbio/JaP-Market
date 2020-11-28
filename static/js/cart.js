@@ -72,7 +72,7 @@ function showCartContent(array) {
                               class="fas fa-trash-alt mr-1"></i> Eliminar</a>
                         </div>
                         <div class="col-md-4 col-5 text-center">
-                          <p class="mb-0">Unidad <strong>$<span id="article-cost${index}">${article.unitCost}</strong></p>
+                          <p class="mb-0">Unidad <strong>$<span id="article-cost${index}">${costUYU}</strong></p>
                           <p class="mb-0">Subtotal <strong>$<span class="article-total" id="article-total${index}"></span></strong></p>
                         </div>
                       </div>
@@ -82,7 +82,6 @@ function showCartContent(array) {
       `
       updateArticleTotal(index)
     })
-    updateShippingCost()
   }
 }
 
@@ -198,7 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (resultObj.status === "ok") {
       articles = resultObj.data.articles;
       showCartContent(articles);
-      // calcShippingCost()
     }
   });
 
