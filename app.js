@@ -79,6 +79,8 @@ app.post("/post/buy", function (req, res) {
     })
 })
 
+app.get("/purchaselog", (req, res) => res.sendFile(`${__dirname}/purchase-log.txt`))
+
 app.use((req, res, next) => res.status(404).sendFile(`${__dirname}/static/404.html`))
 
 app.listen(port, () => {
