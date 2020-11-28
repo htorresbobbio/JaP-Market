@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <!-- Bootstrap main css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <!-- Bootstrap custom theme -->
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- <link href="css/dropzone.css" rel="stylesheet" /> -->
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top px-5 shadow-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="img/logos/logo_japmarket_Title_navbar.svg" height="50"
+          alt="" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav flex-grow-1 justify-content-around px-5 text-center">
+          <h5 class="nav-item mb-0">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </h5>
+          <h5 class="nav-item mb-0">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </h5>
+          <h5 class="nav-item mb-0">
+            <a class="nav-link" href="products.html">Productos</a>
+          </h5>
+          <h5 class="nav-item mb-0">
+            <a class="nav-link active" href="sell.html">Vender</a>
+          </h5>
+        </div>
+        <div class="navbar-nav align-items-center text-center" style="display: none" id="userPanel">
+          <h6 class="nav-item dropdown mb-0 active">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"></a>
+            <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
+              <a id="cartCount" class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i> Carrito</a>
+              <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user"></i> Mi perfil</a>
+              <a class="dropdown-item" href="#" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Cerrar
+                sesión</a>
+            </div>
+          </h6>
+        </div>
+        <div class="navbar-nav" id="loginPanel">
+          <button class="nav-item btn btn-light shadow py-2 px-3" data-toggle="modal" data-target="#loginModal">
+            <h6 class="mb-0">Iniciar sesión</h6>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row justify-content-md-center mt-5">
+      <div class="col-md-8 order-md-1">
+        <h4 class="mb-3">Información del producto</h4>
+        <form class="needs-validation" id="sell-info">
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="productName">Nombre</label>
+              <input type="text" class="form-control" id="productName" placeholder="" value="" />
+              <div class="invalid-feedback">Ingresa un nombre</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8 order-md-1">
+              <label for="zip">Imágenes</label>
+              <div class="needsclick dz-clickable" id="file-upload">
+                <div class="dz-message needsclick">
+                  Arrastra tus fotos aquí<br />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mb-3">
+              <label for="productDescription">Descripción</label>
+              <textarea class="form-control" id="productDescription" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="zip">Costo</label>
+              <input type="number" class="form-control" id="productCostInput" placeholder="" required="" value="0"
+                min="0" />
+              <div class="invalid-feedback">
+                El costo debe ser mayor que 0.
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="state">Moneda</label>
+              <select class="custom-select d-block w-100" id="productCurrency" required="">
+                <option selected>Pesos Uruguayos (UYU)</option>
+                <option>Dólares (USD)</option>
+              </select>
+              <div class="invalid-feedback">
+                Ingresa una categoría válida.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7 mb-3">
+              <label for="state">Categoría</label>
+              <select class="custom-select d-block w-100" id="productCategory">
+                <option value="">Elija la categoría...</option>
+                <option>Autos</option>
+                <option>Juguetes</option>
+                <option>Muebles</option>
+                <option>Herramientas</option>
+                <option>Computadoras</option>
+                <option>Vestimenta</option>
+              </select>
+              <div class="invalid-feedback">
+                Por favor ingresa una categoría válida.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 mb-3">
+              <label for="productCountInput">Cantidad en stock</label>
+              <input type="number" class="form-control" id="productCountInput" placeholder="" required="" value="1"
+                min="0" />
+              <div class="invalid-feedback">La cantidad es requerida.</div>
+            </div>
+          </div>
+          <hr class="mb-4" />
+          <h5 class="mb-3">Tipo de publicación</h5>
+          <div class="d-block my-3">
+            <div class="custom-control custom-radio">
+              <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked=""
+                required="" />
+              <label class="custom-control-label" for="goldradio">Gold (13%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="" />
+              <label class="custom-control-label" for="premiumradio">Premium (7%)</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="" />
+              <label class="custom-control-label" for="standardradio">Estándar (3%)</label>
+            </div>
+            <div class="row">
+              <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">
+                Ver condiciones
+              </button>
+            </div>
+          </div>
+          <hr class="mb-4" />
+          <h4 class="mb-3">Costos</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Precio</h6>
+                <small class="text-muted">Unitario del producto</small>
+              </div>
+              <span class="text-muted" id="productCostText">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Porcentaje</h6>
+                <small class="text-muted">Según el tipo de publicación</small>
+              </div>
+              <span class="text-muted" id="comissionText">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total ($)</span>
+              <strong id="totalCostText">-</strong>
+            </li>
+          </ul>
+          <hr class="mb-4" />
+          <button class="btn btn-primary btn-lg mb-3" type="submit">
+            Vender
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="alert fade" role="alert" id="alertResult">
+    <span id="resultSpan"></span>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Condiciones de publicación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <h5 class="text-warning">Gold (13%)</h5>
+              <p class="muted text-justify">
+                Tu producto se verá de forma promocionada en portada, además
+                de las condiciones de Premium y Estándar.
+              </p>
+            </div>
+            <hr />
+            <div class="row">
+              <h5 class="text-primary">Stándar (7%)</h5>
+              <p class="muted text-justify">
+                Se mostrará el producto en los primeros lugares de resultados
+                de búsqueda, así cómo cuando se ingrese a la categoría que
+                pertenezca.
+              </p>
+            </div>
+            <hr />
+            <div class="row">
+              <h5 class="text-secondary">Estándar (3%)</h5>
+              <p class="muted text-justify">
+                El producto se listará en la categoría correspondiente, así
+                como en los resultados de búsquedas que coincidan con las
+                palabras claves en el nombre.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="text-white bg-secondary p-3">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p class="mb-0">
+        Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la
+        letra del obligatorio.
+      </p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/sell.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Bootstrap main css -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Bootstrap custom theme -->
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top px-5 mb-3 shadow-lg">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><img src="img/logos/logo_japmarket_Title_navbar.svg" height="50"
+          alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
+          class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-nav flex-grow-1 justify-content-around px-5 text-center">
+          <h5 class="nav-item mb-0"><a class="nav-link" href="index.html">Inicio</a></h5>
+          <h5 class="nav-item mb-0"><a class="nav-link active" href="categories.html">Categorías</a></h5>
+          <h5 class="nav-item mb-0"><a class="nav-link" href="products.html">Productos</a></h5>
+          <h5 class="nav-item mb-0"><a class="nav-link" href="sell.html">Vender</a></h5>
+        </div>
+        <div class="navbar-nav align-items-center text-center" style="display: none;" id="userPanel">
+          <h6 class="nav-item dropdown mb-0 active">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"></a>
+            <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
+              <a id="cartCount" class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart"></i>
+                Carrito</a>
+              <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user"></i> Mi perfil</a>
+              <a class="dropdown-item" href="#" onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Cerrar
+                sesión</a>
+            </div>
+          </h6>
+        </div>
+        <div class="navbar-nav" id="loginPanel">
+          <a class="nav-item btn btn-light shadow py-2 px-3" href="login.html">
+            <h6 class="mb-0">Iniciar sesión</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main role="main">
+    <div class="container">
+      <div class="row justify-content-end mr-2">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle mx-2" type="button" id="dropdownSortButton"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Orden
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <button class="dropdown-item active" id="sortAsc" type="button">Alfabético</button>
+            <button class="dropdown-item" id="sortDesc" type="button">Alfabético inverso</button>
+            <button class="dropdown-item" id="sortByCount" type="button">Cantidad de productos</button>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownFilterButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Filtro
+          </button>
+          <div class="dropdown-menu" style="max-width: 200px;" aria-labelledby="dropdownMenuButton">
+            <p class="px-3 mb-0 text-muted text-center">Cantidad de productos</p>
+            <div class="px-3 pt-2">
+              <div class="form-group">
+                <label for="rangeFilterCountMin">Mínimo</label>
+                <input class="form-control" type="number" placeholder="min." id="rangeFilterCountMin">
+              </div>
+              <div class="form-group">
+                <label for="rangeFilterCountMax">Máximo</label>
+                <input class="form-control" type="number" placeholder="máx." id="rangeFilterCountMax">
+              </div>
+              <div class="btn-group mb-2" role="group">
+                <button class="btn btn-primary" id="rangeFilterCount">Filtrar</button>
+                <button class="btn btn-secondary" id="clearRangeFilter">Limpiar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="cat-list-container">
+      </div>
+    </div>
+  </main>
+  <footer class="text-white bg-secondary p-3">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p class="mb-0">Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/categories.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="google-signin-client_id"
+        content="204514762043-khn737fvm4e3j6i1fl7crcfilbjj3ubd.apps.googleusercontent.com" />
+    <title>JaPMarket - Encontralo Amalo Compralo</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Bootstrap main css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- Bootstrap custom theme -->
+    <link rel="stylesheet" href="css/theme.css" />
+    <!-- <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script> -->
+</head>
+
+<body>
+    <h1>Ooops</h1>
+    <p>Página no encontrada</p>
+    <p>Volver al <a href="index.html">inicio</a></p>
+    <footer class="text-white bg-secondary p-3">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">Volver arriba</a>
+            </p>
+            <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+            <p class="mb-0">
+                Clickea <a target="_blank" href="docs/Letra.pdf">aquí</a> para descargar la
+                letra del obligatorio.
+            </p>
+        </div>
+    </footer>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        if (!sessionStorage.getItem("Visited")) {
+            $("#firstVisitModal").modal();
+            sessionStorage.setItem("Visited", true);
+        }
+    </script>
+</body>
+
+</html>
