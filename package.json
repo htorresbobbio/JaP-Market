@@ -1,14 +1,22 @@
 {
-  "name": "entrega8",
+  "name": "jap-market",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proyecto personal para el curso Jóvenes a Programar 2020",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Hugo Torres",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/htorresbobbio/JaP-Market.git"
+  },
+  "bugs": {
+    "url": "https://github.com/htorresbobbio/JaP-Market/issues"
+  },
+  "homepage": "https://github.com/htorresbobbio/JaP-Market#readme"
 }
